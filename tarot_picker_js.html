@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>타로카드 뽑기</title>
+  <style>
+    body { font-family: 'Arial'; text-align: center; margin-top: 50px; }
+    #card { font-size: 24px; margin-top: 20px; white-space: pre-line; }
+    button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>오늘의 타로카드 🔮</h1>
+  <button onclick="drawCard()">카드를 뽑아보세요</button>
+  <div id="card"></div>
+
+  <script>
+    const tarotCards = [
+      { name: "The Fool", upright: "새로운 시작, 자유, 모험", reversed: "무모함, 방향 상실" },
+      { name: "The Magician", upright: "의지, 창조력, 자원 활용", reversed: "속임수, 무능함" },
+      { name: "The High Priestess", upright: "직관, 잠재의식, 신비", reversed: "비밀, 억압" },
+      { name: "The Empress", upright: "풍요, 모성, 창조", reversed: "의존, 창조성 부족" },
+      { name: "The Emperor", upright: "권위, 안정, 구조", reversed: "독재, 불안정" },
+      { name: "The Hierophant", upright: "전통, 조언, 도덕", reversed: "비전통, 반항" },
+      { name: "The Lovers", upright: "사랑, 조화, 선택", reversed: "갈등, 부조화" },
+      { name: "The Chariot", upright: "의지, 성공, 통제", reversed: "혼란, 통제 상실" },
+      { name: "Strength", upright: "용기, 인내, 내면의 힘", reversed: "약함, 의욕 상실" },
+      { name: "The Hermit", upright: "고독, 내면 탐색", reversed: "고립, 외로움" },
+      { name: "Wheel of Fortune", upright: "운명, 변화, 기회", reversed: "불운, 저항" },
+      { name: "Justice", upright: "공정, 진실, 책임", reversed: "불공정, 편견" },
+      { name: "The Hanged Man", upright: "희생, 관점 전환", reversed: "지체, 저항" },
+      { name: "Death", upright: "끝, 변화, 재생", reversed: "저항, 정체" },
+      { name: "Temperance", upright: "절제, 균형, 조화", reversed: "불균형, 과잉" },
+      { name: "The Devil", upright: "집착, 유혹, 억압", reversed: "해방, 깨달음" },
+      { name: "The Tower", upright: "붕괴, 급격한 변화", reversed: "두려움, 회피" },
+      { name: "The Star", upright: "희망, 치유, 영감", reversed: "실망, 신념 상실" },
+      { name: "The Moon", upright: "환상, 직관, 꿈", reversed: "혼란, 불안" },
+      { name: "The Sun", upright: "성취, 즐거움, 낙관", reversed: "자만, 지연" },
+      { name: "Judgement", upright: "자각, 부활, 용서", reversed: "망설임, 회피" },
+      { name: "The World", upright: "완성, 통합, 성취", reversed: "미완, 불균형" }
+    ];
+
+    function drawCard() {
+      const index = Math.floor(Math.random() * tarotCards.length);
+      const upright = Math.random() < 0.5;
+      const card = tarotCards[index];
+      const meaning = upright ? card.upright : card.reversed;
+      const direction = upright ? "(정방향)" : "(역방향)";
+      document.getElementById("card").innerText = `${card.name} ${direction}\n의미: ${meaning}`;
+    }
+  </script>
+</body>
+</html>
